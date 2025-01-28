@@ -3,17 +3,19 @@ document.getElementById("ticketForm").addEventListener("submit", function (e) {
 
     // Get user input
     const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
     const numTickets = document.getElementById("num_tickets").value;
 
     // Generate ticket content
     const ticketContent = `
-------------------------------
 MOVIE TICKET
 ------------------------------
-Name: ${name}
+Title : Daaku Maharaj
+
+Name: ${name.toUpperCase()}
+
 Number of Tickets: ${numTickets}
-Date: ${new Date().toLocaleString()}
+
+Date: 01/31/2025 9:00 PM
 ------------------------------
 Thank you for booking with us!
 Enjoy the movie!
@@ -24,19 +26,31 @@ Enjoy the movie!
     document.getElementById("ticketDetails").textContent = ticketContent;
     document.getElementById("ticketDisplay").classList.remove("hidden");
 
-    // Add functionality to download the ticket
+    // Add functionality to download the ticket as PDF
     document.getElementById("downloadTicket").addEventListener("click", () => {
-        const blob = new Blob([ticketContent], { type: "text/plain" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `ticket_${name}.txt`;
-        a.click();
-        URL.revokeObjectURL(url);
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFont("courier", "normal");
+        doc.text(ticketContent, 10, 10);
+        doc.save(`ticket_${name}.pdf`);
     });
 
-    // Add functionality to send the ticket via email
+    // Add functionality to send the ticket via email using EmailJS
     document.getElementById("emailTicket").addEventListener("click", () => {
-        alert(`The ticket will be sent to ${email}. (Email functionality not implemented in this example.)`);
+        emailjs
+            .send("your_service_id", "your_template_id", {
+                to_name: name,
+                to_email: email,
+                message: ticketContent,
+            })
+            .then(
+                function (response) {
+                    alert("Ticket sent to your email!");
+                },
+                function (error) {
+                    alert("Failed to send email. Please try again later.");
+                    console.error("Email error:", error);
+                }
+            );
     });
 });

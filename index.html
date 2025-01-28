@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Ticketing System</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Include jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <!-- Include EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init("your_public_key"); <!-- Replace with your EmailJS public key -->
+    </script>
 </head>
 <body>
     <div class="container">
@@ -12,9 +19,6 @@
         <form id="ticketForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
             
             <label for="num_tickets">Number of Tickets:</label>
             <input type="number" id="num_tickets" name="num_tickets" placeholder="Enter number of tickets" min="1" required><br><br>
@@ -25,11 +29,9 @@
         <div id="ticketDisplay" class="hidden">
             <h2>Your Ticket 🎟️</h2>
             <pre id="ticketDetails"></pre>
-            <button id="downloadTicket">Download Ticket</button>
-            <button id="emailTicket">Send to Email</button>
+            <button id="downloadTicket">Download Ticket as PDF</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
