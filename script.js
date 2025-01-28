@@ -10,7 +10,7 @@ document.getElementById("ticketForm").addEventListener("submit", function (e) {
 <span style="font-size: 25px; font-weight: bold;">MOVIE TICKET</span>
 ------------------------------
 <span style="font-size: 15px;">
-Title : Daaku Maharaj
+Title : Daaku Maharaj ("TBD")
 
 Name: ${name.toUpperCase()}
 
