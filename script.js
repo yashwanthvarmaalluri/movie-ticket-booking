@@ -36,21 +36,5 @@ Enjoy the movie!
     });
 
     // Add functionality to send the ticket via email using EmailJS
-    document.getElementById("emailTicket").addEventListener("click", () => {
-        emailjs
-            .send("your_service_id", "your_template_id", {
-                to_name: name,
-                to_email: email,
-                message: ticketContent,
-            })
-            .then(
-                function (response) {
-                    alert("Ticket sent to your email!");
-                },
-                function (error) {
-                    alert("Failed to send email. Please try again later.");
-                    console.error("Email error:", error);
-                }
-            );
-    });
+    
 });
