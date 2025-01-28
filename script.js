@@ -12,7 +12,6 @@ document.getElementById("ticketForm").addEventListener("submit", function (e) {
 MOVIE TICKET
 ------------------------------
 Name: ${name}
-Email: ${email}
 Number of Tickets: ${numTickets}
 Date: ${new Date().toLocaleString()}
 ------------------------------
