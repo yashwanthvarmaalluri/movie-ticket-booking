@@ -9,7 +9,7 @@ document.getElementById("ticketForm").addEventListener("submit", function (e) {
     const ticketContent = `
 MOVIE TICKET
 ------------------------------
-Title : Daaku Mahara
+Title : Daaku Maharaj
 
 Name: ${name.toUpperCase()}
 
@@ -19,6 +19,13 @@ Date: 01/31/2025 9:00 PM
 ------------------------------
 Thank you for booking with us!
 Enjoy the movie!
+
+
+<span style="font-size: 12px; font-style: italic;">
+** Movie ticket is non-refundable **<br>
+** Please carry a valid ID proof **<br>
+** Movie time and title are subject to change **
+</span>
 ------------------------------
 `;
 
