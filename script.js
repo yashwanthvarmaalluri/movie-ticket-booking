@@ -1,7 +1,7 @@
 document.getElementById("ticketForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Get user input
+    // Get user input from
     const name = document.getElementById("name").value;
     const numTickets = document.getElementById("num_tickets").value;
 
