@@ -9,7 +9,7 @@ document.getElementById("ticketForm").addEventListener("submit", function (e) {
     const ticketContent = `
 MOVIE TICKET
 ------------------------------
-Title : Daaku Maharaj
+Title : Daaku Mahara
 
 Name: ${name.toUpperCase()}
 
